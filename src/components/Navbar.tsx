@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export const Navbar: React.FC = () => (
   <nav>
@@ -8,10 +9,12 @@ export const Navbar: React.FC = () => (
       </a>
       <ul className="right hide-on-med-and-down">
         <li>
-          <a href="/">The list of tasks</a>
+          <NavLink to="/">The list of tasks</NavLink>
+          {/* <a href="/">The list of tasks</a> */}
         </li>
         <li>
-          <a href="/">About us</a>
+          <NavLink to="/about">About us</NavLink>
+          {/* <a href="/">About us</a> */}
         </li>
       </ul>
     </div>
