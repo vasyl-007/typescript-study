@@ -18,8 +18,23 @@ const App: React.FC = () => {
     setTodos((prev) => [newTodo, ...prev]);
   };
 
-  const toggleHandler = (id: number) => {};
-  const removeHandler = (id: number) => {};
+  const toggleHandler = (id: number) => {
+    setTodos((prev) =>
+      prev.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+    );
+  };
+  const removeHandler = (id: number) => {
+    const shouldRemove = window.confirm("Are you shure want to delete this Task?");
+    if (shouldRemove) {
+      setTodos((prev) => prev.filter((todo) => todo.id !== id));
+    }
+  };
+
   return (
     <>
       <Navbar />
