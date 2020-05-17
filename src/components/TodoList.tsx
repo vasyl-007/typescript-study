@@ -18,6 +18,13 @@ export const TodoList: React.FC<TodoListProps> = ({
   if (todos.length === 0) {
     return <p className="center">There are now tasks yet</p>;
   }
+
+  const removeHandler = (event: React.MouseEvent, id: number) => {
+    event.preventDefault();
+
+    onRemove(id);
+  };
+
   return (
     <ul>
       {todos.map((todo) => {
@@ -40,10 +47,11 @@ export const TodoList: React.FC<TodoListProps> = ({
               <span>{todo.title}</span>
               <i
                 className="material-icons red-text"
-                onClick={() => {
-                  // callback this is one method to invoke func
-                  onRemove(todo.id);
-                }}
+                onClick={(event) => removeHandler(event, todo.id)}
+                // onClick={() => {
+                //   // callback this is one method to invoke func
+                //   onRemove(todo.id);
+                // }}
               >
                 delete
               </i>
