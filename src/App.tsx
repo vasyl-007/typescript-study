@@ -15,15 +15,21 @@ const App: React.FC = () => {
       completed: false,
     };
     // setTodos([newTodo, ...todos]);
-    setTodos(prev => [newTodo, ...prev])
+    setTodos((prev) => [newTodo, ...prev]);
   };
 
+  const toggleHandler = (id: number) => {};
+  const removeHandler = (id: number) => {};
   return (
     <>
       <Navbar />
       <div className="container">
         <TodoForm onAdd={addHandler} />
-        <TodoList todos={todos} />
+        <TodoList
+          todos={todos}
+          onToggle={toggleHandler}
+          onRemove={removeHandler}
+        />
       </div>
     </>
   );
